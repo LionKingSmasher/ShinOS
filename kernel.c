@@ -2,6 +2,7 @@
 #include "interrupt.h"
 
 void title();
+void clear();
 
 void main()
 {
@@ -17,4 +18,11 @@ void title()
 	kprintf("n", 0, 3, 0x04);
 	kprintf("O", 0, 4, 0x05);
 	kprintf("S", 0, 5, 0x06);
+}
+
+void clear()
+{
+	for(int i = 0; i<40; i++){
+		for(int)
+	}
 }
