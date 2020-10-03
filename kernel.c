@@ -6,6 +6,7 @@ void clear();
 
 void main()
 {
+	clear();
 	title();
 	init_intdesc();
 }
@@ -23,6 +24,8 @@ void title()
 void clear()
 {
 	for(int i = 0; i<40; i++){
-		for(int)
+		for(int j = 0; j<20; j++){
+			kprintf(" ", i, j, 0x00);
+		}
 	}
 }
