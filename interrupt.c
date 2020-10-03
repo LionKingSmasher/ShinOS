@@ -191,8 +191,8 @@ void idt_keyboard()
 	else if(keybuf != 0xFF && keybuf != 0x08)
 		keyboard[index++] = keybuf;
 
-	line_clear(8);
-	kprintf(keyboard, 8, 0, 0x07);
+	//line_clear(8);
+	//kprintf(keyboard, 8, 0, 0x07);
 
 	__asm__ __volatile__
 	(
