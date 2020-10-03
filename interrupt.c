@@ -2,6 +2,9 @@
 #include "interrupt.h"
 #include "function.h"
 
+static unsigned char keyboard[160] = { 0, };
+static unsigned short index = 0;
+
 struct IDT inttable[3];
 struct IDTR idtr = { 256 * 8 - 1,0 };
 
@@ -181,7 +184,15 @@ void idt_keyboard()
 
 	__asm__ __volatile__("mov %0, al;" :"=r"(keybuf));
 
-	kprintf(&keybuf, 8, 10, 0x07);
+	keybuf = transScan(keybuf);
+
+	if(keybuf == 0x08 && index != 0) //backspace
+		keyboard[--index] = 0;
+	else if(keybuf != 0xFF && keybuf != 0x08)
+		keyboard[index++] = keybuf;
+
+	line_clear(8);
+	kprintf(keyboard, 8, 0, 0x07);
 
 	__asm__ __volatile__
 	(

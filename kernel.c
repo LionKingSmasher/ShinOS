@@ -23,8 +23,8 @@ void title()
 
 void clear()
 {
-	for(int i = 0; i<40; i++){
-		for(int j = 0; j<20; j++){
+	for(int i = 0; i<20; i++){
+		for(int j = 0; j<160; j++){
 			kprintf(" ", i, j, 0x00);
 		}
 	}
