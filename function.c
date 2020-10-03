@@ -18,3 +18,12 @@ void line_clear(int line){
 		*video++ = 0x03; //al
 	}
 }
+
+void clear()
+{
+	for(int i = 0; i<20; i++){
+		for(int j = 0; j<160; j++){
+			kprintf(" ", i, j, 0x00);
+		}
+	}
+}
